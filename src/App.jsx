@@ -4,7 +4,6 @@ import InputBox from './components/InputBox';
 import ChatBox from './components/ChatBox';
 
 
-
 function App() {
   const [newChat, setNewChat] = useState(true);
   const [messages, setMessages] = useState([]);
@@ -12,6 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   // const [status, setStatus] = useState('');
+
   
   useEffect(() => {
     const fetchBotResponse = async () => {
@@ -24,7 +24,7 @@ function App() {
 
         try {
           // Here you can add logic to get a response from the bot and update messages
-          const response = await fetch(process.env.API_URL, {
+          const response = await fetch(import.meta.env.VITE_API_URL, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -87,5 +87,6 @@ function App() {
     </>
   );
 }
+
 
 export default App
