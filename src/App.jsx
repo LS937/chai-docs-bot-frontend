@@ -24,13 +24,16 @@ function App() {
 
         try {
           // Here you can add logic to get a response from the bot and update messages
-          const response = await fetch(import.meta.env.VITE_API_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ message: input }),
-          });
+          const response = await fetch(
+            import.meta.env.VITE_API_URL,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ message: input }),
+            }
+          );
           const data = await response.json();
 
           setMessages((prev) => [
